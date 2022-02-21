@@ -204,7 +204,9 @@ def fillup_pad(data, min_size, seg=None, pad_value_data=None, pad_value_seg=None
             data_smpl = data[i]
             seg_smpl = None
             if seg is not None:
-                seg_smpl = [seg[i]]
+                # fix
+                # seg_smpl = [seg[i]]
+                seg_smpl = seg[i]
             new_shp = np.max(np.vstack((np.array(data_smpl.shape[1:])[None], np.array(min_size)[None])), 0)
 
             res_d = pad_nd_image(data_smpl, new_shp)
